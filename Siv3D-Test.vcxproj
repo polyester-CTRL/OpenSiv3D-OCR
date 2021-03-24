@@ -57,8 +57,8 @@
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
     <LocalDebuggerWorkingDirectory>$(ProjectDir)App</LocalDebuggerWorkingDirectory>
-    <IncludePath>$(SolutionDir)\..\Siv3D\include;$(SolutionDir)\..\Siv3D\include\ThirdParty;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\..\Siv3D\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\..\Siv3D\include;$(SolutionDir)\..\Siv3D\include\ThirdParty;C:\code\opencv_build\install\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\..\Siv3D\lib\Windows;$(OpenCV)\x64\vc16\lib;C:\code\vcpkg-master\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

@@ -18,9 +18,10 @@ struct Result
 	double probability = 0.0;
 };
 
-s3d::Array<Result> RecognizeCharacterFromImage(const s3d::Image handwritten)
+Array<Result> RecognizeCharacterFromImage(Image handwritten)
 {
 	Array<Result> results;
+	Result result;
 	// 画像読み込み
 	// const s3d::Image handwritten(U"example/hand.png");
 	cv::Mat image = s3d::OpenCV_Bridge::ToMatVec3bBGR(handwritten);
@@ -32,6 +33,7 @@ s3d::Array<Result> RecognizeCharacterFromImage(const s3d::Image handwritten)
 	cv::cvtColor(image, gray, cv::COLOR_RGB2GRAY);
 	// 文字認識クラスのインスタンス生成
 	auto ocr = cv::text::OCRTesseract::create("tessdata\\", "jpn");
+	
 	// ホワイトリストを消す
 	ocr->setWhiteList("");
 
@@ -53,87 +55,131 @@ s3d::Array<Result> RecognizeCharacterFromImage(const s3d::Image handwritten)
 			boxes[i].x, boxes[i].y,
 			boxes[i].width, boxes[i].height,
 			confidences[i]);
+		result.st = Unicode::FromUTF8(words[i]);
+		result.re.x = boxes[i].x, result.re.y = boxes[i].y;
+		result.re.w = boxes[i].width, result.re.h = boxes[i].height;
+		result.probability = confidences[i];
+		results.push_back(result);
 	}
-	String s = U"hello";
-	if (boxes.size() > 0) {
+	String s;
+	if (boxes.size() > 0) 
+	{
 		// 文字コードを変換
 		s = Unicode::FromUTF8(text);
 	}
 	Print << s;
-
+	return results;
 }
 
 
 
 void Main()
 {
+	// {
+		// Scene::SetBackground(ColorF{ 0.8, 0.9, 1.0 });
+		Scene::SetBackground(Palette::Black);
+		Scene::SetResizeMode(ResizeMode::Keep);
+		Window::SetStyle(WindowStyle::Sizable);
+		// Window::Resize(1280, 720);
 
-	/*
-	// Scene::SetBackground(ColorF{ 0.8, 0.9, 1.0 });
-	Scene::SetBackground(Palette::Black);
-	Scene::SetResizeMode(ResizeMode::Keep);
-	Window::SetStyle(WindowStyle::Sizable);
-	// Window::Resize(1280, 720);
+		// 画像読み込み
+		const s3d::Image handwritten(U"Screenshot/hand.png");
+		/**/
+		cv::Mat image = s3d::OpenCV_Bridge::ToMatVec3bBGR(handwritten);
+		// cv::Mat image = cv::imread("example\\hand.png");
+		// Print << image.size().width;
 
-	// 画像読み込み
-	const s3d::Image handwritten(U"example/hand.png");
-	cv::Mat image = s3d::OpenCV_Bridge::ToMatVec3bBGR(handwritten);
-	// cv::Mat image = cv::imread("example\\hand.png");
-	// Print << image.size().width;
+		// グレースケール化
+		cv::Mat gray;
+		cv::cvtColor(image, gray, cv::COLOR_RGB2GRAY);
+		// 文字認識クラスのインスタンス生成
+		auto ocr = cv::text::OCRTesseract::create("tessdata\\", "jpn");
 
-	// グレースケール化
-	cv::Mat gray;
-	cv::cvtColor(image, gray, cv::COLOR_RGB2GRAY);
-	// 文字認識クラスのインスタンス生成
-	auto ocr = cv::text::OCRTesseract::create("tessdata\\", "jpn");
-	// ホワイトリストを消す
-	ocr->setWhiteList("");
+		// ホワイトリストを消す
+		ocr->setWhiteList("");
 
-	std::string text;
-  std::vector<cv::Rect> boxes;
-	std::vector<std::string> words;
-	std::vector<float> confidences;
-	// 文字認識の実行
-	ocr->run(gray, text, &boxes, &words, &confidences);
+		std::string text;
+		std::vector<cv::Rect> boxes;
+		std::vector<std::string> words;
+		std::vector<float> confidences;
+	{
+		// 文字認識の実行
+		ocr->run(gray, text, &boxes, &words, &confidences);
 
 		// 結果出力
 
-	printf("%s\n", text.c_str());
-	// 文字のかたまりごとに出力
-	printf(" 文字      | 位置       | 大きさ     | 信頼度\n");
-	printf("-----------+------------+------------+----------\n");
-	for (int i = 0; i < boxes.size(); i++)
-	{
-		printf("%-10s | (%3d, %3d) | (%3d, %3d) | %f\n",
-			words[i].c_str(),
-			boxes[i].x, boxes[i].y,
-			boxes[i].width, boxes[i].height,
-			confidences[i]);
+		
+		// 文字のかたまりごとに出力
+		// printf(" 文字      | 位置       | 大きさ     | 信頼度\n");
+		// printf("-----------+------------+------------+----------\n");
+		for (int i = 0; i < boxes.size(); i++)
+		{
+			printf("%-10s | (%3d, %3d) | (%3d, %3d) | %f\n",
+				words[i].c_str(),
+				boxes[i].x, boxes[i].y,
+				boxes[i].width, boxes[i].height,
+				confidences[i]);
+		}
+		String s = U"hello";
+		if (boxes.size() > 0) {
+			// 文字コードを変換
+			s = Unicode::FromUTF8(text);
+		}
+		Print << s;
+		
 	}
-	String s = U"hello";
-	if (boxes.size() > 0) {
-		// 文字コードを変換
-		s = Unicode::FromUTF8(text);
-	}
-	Print << s;
-	*/
+	/**/
+	// RecognizeCharacterFromImage(handwritten);
+
+
+	// スケッチから文字認識
+
+	 // キャンバスのサイズ
+	constexpr Size canvasSize(600, 600);
+
+	// ペンの太さ
+	constexpr int32 thickness = 8;
+
+	// ペンの色
+	constexpr Color penColor = Palette::Orange;
+
+	// 書き込み用の画像データを用意
+	Image dynamicImage(canvasSize, Palette::White);
+
+	// 表示用のテクスチャ（内容を更新するので DynamicTexture）
+	DynamicTexture texture(dynamicImage);
 	
 	
 	while (System::Update())
 	{
-		// for (auto i : step(20))
+		if (MouseL.pressed())
 		{
-			// Rect{ Point{ 100, 100 } *i, 100 }.draw();
+			// 書き込む線の始点は直前のフレームのマウスカーソル座標
+			// （初回はタッチ操作時の座標のジャンプを防ぐため、現在のマウスカーソル座標にする）
+			const Point from = MouseL.down() ? Cursor::Pos() : Cursor::PreviousPos();
+
+			// 書き込む線の終点は現在のマウスカーソル座標
+			const Point to = Cursor::Pos();
+
+			// image に線を書き込む
+			Line(from, to).overwrite(dynamicImage, thickness, penColor);
+
+			// 書き込み終わった image でテクスチャを更新
+			texture.fill(dynamicImage);
 		}
 
-		for (auto i : step(20))
+		// 描いたものを消去するボタンが押されたら
+		if (SimpleGUI::Button(U"Clear", Vec2(640, 40), 120))
 		{
-			//Rect{ Cursor::Pos().movedBy(0 + i * 20, 0), 20, 400 }
-				//.draw(HSV{ i * 10.0, 0.5, 0.9 });
+			// 画像を白で塗りつぶす
+			dynamicImage.fill(Palette::White);
+
+			// 塗りつぶし終わった image でテクスチャを更新
+			texture.fill(dynamicImage);
 		}
 
-		//Rect{ Cursor::Pos(), 40 }.draw(Palette::Orange);
-		
-		
+		// テクスチャを表示
+		texture.draw();
 	}
 }
+
