@@ -856,8 +856,77 @@
     <Filter Include="src\Siv3D\Mat3x3">
       <UniqueIdentifier>{d346d155-37f9-4a3c-a942-02072cc1309b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Siv3D\VideoPlayer">
-      <UniqueIdentifier>{41b9bddc-954e-4946-8f36-f4590cfb0135}</UniqueIdentifier>
+    <Filter Include="src\Siv3D\GrabCut">
+      <UniqueIdentifier>{850d7e63-1820-4e4d-a6cc-33d944814f02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Siv3D\VideoReader">
+      <UniqueIdentifier>{2fce9a7e-aff0-4a6e-8678-51c0c30ea7a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Siv3D\VideoTexture">
+      <UniqueIdentifier>{4878f515-3a64-4140-b8ac-915ac5e83cf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ThirdParty\easyexif">
+      <UniqueIdentifier>{427d6d8d-56a8-4529-874d-ae84c7cd6ea9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Siv3D\Exif">
+      <UniqueIdentifier>{1e304af2-3f06-47c0-b8a0-7117d499a3c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Siv3D\ImageFormat\BMP">
+      <UniqueIdentifier>{4c0d4612-6013-49eb-bbe6-02765caf0397}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Siv3D\ImageFormat\PNG">
+      <UniqueIdentifier>{f4ddd5bf-ce3b-44cd-a6af-f3c99592523f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Siv3D\ImageFormat\JPEG">
+      <UniqueIdentifier>{071f2698-acaa-4b0e-b380-2d64fabe5de3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Siv3D\ImageFormat\SVG">
+      <UniqueIdentifier>{e7630c51-6bea-4467-8e04-ee63d8ce4435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Siv3D\ImageFormat\TGA">
+      <UniqueIdentifier>{1d9843df-2384-4253-a2a3-652066b6cdac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Siv3D\VideoWriter">
+      <UniqueIdentifier>{b2faa0fc-e32d-46b4-90c4-376a5885f1e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Siv3D\SerialPortInfo">
+      <UniqueIdentifier>{e0af6dea-5595-4d9c-afcb-18e0b7e74893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Siv3D\Serial">
+      <UniqueIdentifier>{960916da-c9ba-4f87-b590-b005110cc9e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ThirdParty\serial">
+      <UniqueIdentifier>{024b3497-38ee-4e72-97ca-ec4514af88ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ThirdParty\serial\impl">
+      <UniqueIdentifier>{d004fa5e-2885-4df0-b2d8-b06443ce5e54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ThirdParty\serial\impl\list_ports">
+      <UniqueIdentifier>{ec11b4dd-93e2-471b-b140-d0d4e6a4839d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Siv3D\Physics2D">
+      <UniqueIdentifier>{f6f5faab-7118-4a9d-8c58-fdc47da993c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ThirdParty\box2d">
+      <UniqueIdentifier>{39a9ef71-58ea-4971-a1a8-0b6bd91bdb42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ThirdParty\box2d\collision">
+      <UniqueIdentifier>{271ac708-5fab-45b9-9d8f-141a72a0a6d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ThirdParty\box2d\common">
+      <UniqueIdentifier>{5d2f721b-b74a-4532-a04b-7dfeb227a649}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ThirdParty\box2d\dynamics">
+      <UniqueIdentifier>{6e2677e9-c505-416f-a604-59f3eb68a037}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ThirdParty\box2d\rope">
+      <UniqueIdentifier>{94969afe-f737-4f69-88fa-491f0d425025}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Siv3D\Physics2D\detail">
+      <UniqueIdentifier>{0173e275-4464-4b5c-8830-d547c497a873}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Siv3D\Physics2D">
+      <UniqueIdentifier>{23ad4a47-b050-4410-a227-2873b7b12a1c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1835,9 +1904,6 @@
     </ClInclude>
     <ClInclude Include="..\Siv3D\include\Siv3D\detail\ImageEncoder.ipp">
       <Filter>include\Siv3D\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Siv3D\src\Siv3D\ImageFormat\BMPHeader.hpp">
-      <Filter>src\Siv3D\ImageFormat</Filter>
     </ClInclude>
     <ClInclude Include="..\Siv3D\include\Siv3D\ImageFormat\PNGEncoder.hpp">
       <Filter>include\Siv3D\ImageFormat</Filter>
@@ -4209,11 +4275,326 @@
     <ClInclude Include="..\Siv3D\include\Siv3D\detail\Mat3x3.ipp">
       <Filter>include\Siv3D\detail</Filter>
     </ClInclude>
-    <ClInclude Include="..\Siv3D\include\Siv3D\VideoPlayer.hpp">
+    <ClInclude Include="..\Siv3D\include\Siv3D\GrabCut.hpp">
       <Filter>include\Siv3D</Filter>
     </ClInclude>
-    <ClInclude Include="..\Siv3D\src\Siv3D\VideoPlayer\VideoPlayerDetail.hpp">
-      <Filter>src\Siv3D\VideoPlayer</Filter>
+    <ClInclude Include="..\Siv3D\src\Siv3D\GrabCut\GrabCutDetail.hpp">
+      <Filter>src\Siv3D\GrabCut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\VideoReader\VideoReaderDetail.hpp">
+      <Filter>src\Siv3D\VideoReader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\VideoReader.hpp">
+      <Filter>include\Siv3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\VideoTexture.hpp">
+      <Filter>include\Siv3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\VideoTexture\VideoTextureDetail.hpp">
+      <Filter>src\Siv3D\VideoTexture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\easyexif\exif.h">
+      <Filter>src\ThirdParty\easyexif</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Exif.hpp">
+      <Filter>include\Siv3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\ImageFormat\BMP\BMPHeader.hpp">
+      <Filter>src\Siv3D\ImageFormat\BMP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\ImageFormat\TGA\TGAHeader.hpp">
+      <Filter>src\Siv3D\ImageFormat\TGA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\ImageFormat\TGADecoder.hpp">
+      <Filter>include\Siv3D\ImageFormat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\ImageFormat\TGAEncoder.hpp">
+      <Filter>include\Siv3D\ImageFormat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\VideoWriter.hpp">
+      <Filter>include\Siv3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\VideoWriter\VideoWriterDetail.hpp">
+      <Filter>src\Siv3D\VideoWriter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\WaveSample.hpp">
+      <Filter>include\Siv3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Wave.hpp">
+      <Filter>include\Siv3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\detail\WaveSample.ipp">
+      <Filter>include\Siv3D\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\detail\Wave.ipp">
+      <Filter>include\Siv3D\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\SerialPortInfo.hpp">
+      <Filter>include\Siv3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Serial.hpp">
+      <Filter>include\Siv3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\serial\serial.h">
+      <Filter>src\ThirdParty\serial</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\serial\v8stdint.h">
+      <Filter>src\ThirdParty\serial</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\serial\impl\win.h">
+      <Filter>src\ThirdParty\serial\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\Serial\SerialDetail.hpp">
+      <Filter>src\Siv3D\Serial</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\detail\Serial.ipp">
+      <Filter>include\Siv3D\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2Body.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2BodyType.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2Circle.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2Collision.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2Contact.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2ContactPair.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2DistanceJoint.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2Filter.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2Fwd.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2Line.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2LineString.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2Material.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2PivotJoint.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2Polygon.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2Quad.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2Rect.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2Shape.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2ShapeType.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2SliderJoint.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2Triangle.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2WheelJoint.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\P2World.hpp">
+      <Filter>include\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_api.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_block_allocator.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_body.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_broad_phase.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_chain_shape.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_circle_shape.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_collision.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_common.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_contact.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_contact_manager.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_distance.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_distance_joint.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_draw.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_dynamic_tree.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_edge_shape.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_fixture.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_friction_joint.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_gear_joint.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_growable_stack.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_joint.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_math.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_motor_joint.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_mouse_joint.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_polygon_shape.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_prismatic_joint.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_pulley_joint.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_revolute_joint.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_rope.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_settings.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_shape.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_stack_allocator.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_time_of_impact.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_time_step.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_timer.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_types.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_weld_joint.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_wheel_joint.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_world.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_world_callbacks.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\box2d.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_polygon_circle_contact.h">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_polygon_contact.h">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_chain_circle_contact.h">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_chain_polygon_contact.h">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_circle_contact.h">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_contact_solver.h">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_edge_circle_contact.h">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_edge_polygon_contact.h">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_island.h">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\detail\P2Collision.ipp">
+      <Filter>include\Siv3D\Physics2D\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\include\Siv3D\Physics2D\detail\P2Body.ipp">
+      <Filter>include\Siv3D\Physics2D\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\Physics2D\P2WorldDetail.hpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\Physics2D\P2Common.hpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\Physics2D\P2BodyDetail.hpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\Physics2D\P2ContactListener.hpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\ThirdParty\box2d\b2_user_settings.h">
+      <Filter>src\ThirdParty\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\Physics2D\P2PivotJointDetail.hpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\Physics2D\P2DistanceJointDetail.hpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\Physics2D\P2SliderJointDetail.hpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Siv3D\src\Siv3D\Physics2D\P2WheelJointDetail.hpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -4628,12 +5009,6 @@
     <ClCompile Include="..\Siv3D\src\Siv3D\Image\SivImage.cpp">
       <Filter>src\Siv3D\Image</Filter>
     </ClCompile>
-    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\BMPDecoder.cpp">
-      <Filter>src\Siv3D\ImageFormat</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\PNGDecoder.cpp">
-      <Filter>src\Siv3D\ImageFormat</Filter>
-    </ClCompile>
     <ClCompile Include="..\Siv3D\src\Siv3D\TextEncoding\SivTextEncoding.cpp">
       <Filter>src\Siv3D\TextEncoding</Filter>
     </ClCompile>
@@ -4691,12 +5066,6 @@
     <ClCompile Include="..\Siv3D\src\Siv3D\ImageEncoder\CImageEncoder.cpp">
       <Filter>src\Siv3D\ImageEncoder</Filter>
     </ClCompile>
-    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\BMPEncoder.cpp">
-      <Filter>src\Siv3D\ImageFormat</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\PNGEncoder.cpp">
-      <Filter>src\Siv3D\ImageFormat</Filter>
-    </ClCompile>
     <ClCompile Include="..\Siv3D\src\Siv3D\Hash\SivHash.cpp">
       <Filter>src\Siv3D\Hash</Filter>
     </ClCompile>
@@ -4708,9 +5077,6 @@
     </ClCompile>
     <ClCompile Include="..\Siv3D\src\Siv3D\LicenseManager\SivLicenseManager.cpp">
       <Filter>src\Siv3D\LicenseManager</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\SVGDecoder.cpp">
-      <Filter>src\Siv3D\ImageFormat</Filter>
     </ClCompile>
     <ClCompile Include="..\Siv3D\src\ThirdParty\qr-code-generator-library\QrCode.cpp">
       <Filter>src\ThirdParty\qr-code-generator-library</Filter>
@@ -5684,20 +6050,281 @@
     <ClCompile Include="..\Siv3D\src\Siv3D\Image\ShapePainting.cpp">
       <Filter>src\Siv3D\Image</Filter>
     </ClCompile>
-    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\JPEGDecoder.cpp">
-      <Filter>src\Siv3D\ImageFormat</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\JPEGEncoder.cpp">
-      <Filter>src\Siv3D\ImageFormat</Filter>
-    </ClCompile>
     <ClCompile Include="..\Siv3D\src\Siv3D\Mat3x3\SivMat3x3.cpp">
       <Filter>src\Siv3D\Mat3x3</Filter>
     </ClCompile>
-    <ClCompile Include="..\Siv3D\src\Siv3D\VideoPlayer\VideoPlayerDetail.cpp">
-      <Filter>src\Siv3D\VideoPlayer</Filter>
+    <ClCompile Include="..\Siv3D\src\Siv3D\GrabCut\GrabCutDetail.cpp">
+      <Filter>src\Siv3D\GrabCut</Filter>
     </ClCompile>
-    <ClCompile Include="..\Siv3D\src\Siv3D\VideoPlayer\SivVideoPlayer.cpp">
-      <Filter>src\Siv3D\VideoPlayer</Filter>
+    <ClCompile Include="..\Siv3D\src\Siv3D\GrabCut\SivGrabCut.cpp">
+      <Filter>src\Siv3D\GrabCut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\VideoReader\SivVideoReader.cpp">
+      <Filter>src\Siv3D\VideoReader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\VideoReader\VideoReaderDetail.cpp">
+      <Filter>src\Siv3D\VideoReader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\VideoTexture\SivVideoTexture.cpp">
+      <Filter>src\Siv3D\VideoTexture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\VideoTexture\VideoTextureDetail.cpp">
+      <Filter>src\Siv3D\VideoTexture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\easyexif\exif.cpp">
+      <Filter>src\ThirdParty\easyexif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Exif\SivExif.cpp">
+      <Filter>src\Siv3D\Exif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\BMP\BMPDecoder.cpp">
+      <Filter>src\Siv3D\ImageFormat\BMP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\BMP\BMPEncoder.cpp">
+      <Filter>src\Siv3D\ImageFormat\BMP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\JPEG\JPEGDecoder.cpp">
+      <Filter>src\Siv3D\ImageFormat\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\JPEG\JPEGEncoder.cpp">
+      <Filter>src\Siv3D\ImageFormat\JPEG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\PNG\PNGDecoder.cpp">
+      <Filter>src\Siv3D\ImageFormat\PNG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\PNG\PNGEncoder.cpp">
+      <Filter>src\Siv3D\ImageFormat\PNG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\SVG\SVGDecoder.cpp">
+      <Filter>src\Siv3D\ImageFormat\SVG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\TGA\TGADecoder.cpp">
+      <Filter>src\Siv3D\ImageFormat\TGA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\ImageFormat\TGA\TGAEncoder.cpp">
+      <Filter>src\Siv3D\ImageFormat\TGA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\VideoWriter\SivVideoWriter.cpp">
+      <Filter>src\Siv3D\VideoWriter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\VideoWriter\VideoWriterDetail.cpp">
+      <Filter>src\Siv3D\VideoWriter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\SerialPortInfo\SivSerialPortInfo.cpp">
+      <Filter>src\Siv3D\SerialPortInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Serial\SivSerial.cpp">
+      <Filter>src\Siv3D\Serial</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\serial\serial.cc">
+      <Filter>src\ThirdParty\serial</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\serial\impl\win.cc">
+      <Filter>src\ThirdParty\serial\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\serial\impl\list_ports\list_ports_win.cc">
+      <Filter>src\ThirdParty\serial\impl\list_ports</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Serial\SerialDetail.cpp">
+      <Filter>src\Siv3D\Serial</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\collision\b2_broad_phase.cpp">
+      <Filter>src\ThirdParty\box2d\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\collision\b2_chain_shape.cpp">
+      <Filter>src\ThirdParty\box2d\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\collision\b2_circle_shape.cpp">
+      <Filter>src\ThirdParty\box2d\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\collision\b2_collide_circle.cpp">
+      <Filter>src\ThirdParty\box2d\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\collision\b2_collide_edge.cpp">
+      <Filter>src\ThirdParty\box2d\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\collision\b2_collide_polygon.cpp">
+      <Filter>src\ThirdParty\box2d\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\collision\b2_collision.cpp">
+      <Filter>src\ThirdParty\box2d\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\collision\b2_distance.cpp">
+      <Filter>src\ThirdParty\box2d\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\collision\b2_dynamic_tree.cpp">
+      <Filter>src\ThirdParty\box2d\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\collision\b2_edge_shape.cpp">
+      <Filter>src\ThirdParty\box2d\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\collision\b2_polygon_shape.cpp">
+      <Filter>src\ThirdParty\box2d\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\collision\b2_time_of_impact.cpp">
+      <Filter>src\ThirdParty\box2d\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\common\b2_math.cpp">
+      <Filter>src\ThirdParty\box2d\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\common\b2_settings.cpp">
+      <Filter>src\ThirdParty\box2d\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\common\b2_stack_allocator.cpp">
+      <Filter>src\ThirdParty\box2d\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\common\b2_timer.cpp">
+      <Filter>src\ThirdParty\box2d\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\common\b2_block_allocator.cpp">
+      <Filter>src\ThirdParty\box2d\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\common\b2_draw.cpp">
+      <Filter>src\ThirdParty\box2d\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_polygon_contact.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_prismatic_joint.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_pulley_joint.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_revolute_joint.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_weld_joint.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_wheel_joint.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_world.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_world_callbacks.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_body.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_chain_circle_contact.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_chain_polygon_contact.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_circle_contact.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_contact.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_contact_manager.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_contact_solver.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_distance_joint.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_edge_circle_contact.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_edge_polygon_contact.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_fixture.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_friction_joint.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_gear_joint.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_island.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_joint.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_motor_joint.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_mouse_joint.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\dynamics\b2_polygon_circle_contact.cpp">
+      <Filter>src\ThirdParty\box2d\dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\ThirdParty\box2d\rope\b2_rope.cpp">
+      <Filter>src\ThirdParty\box2d\rope</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2World.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2WorldDetail.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2Body.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2BodyDetail.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2Line.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2Circle.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2LineString.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2Rect.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2ContactListener.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2Quad.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2Triangle.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2Polygon.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2Shape.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2PivotJoint.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2PivotJointDetail.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2DistanceJointDetail.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2DistanceJoint.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2SliderJointDetail.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2SliderJoint.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2WheelJoint.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Siv3D\src\Siv3D\Physics2D\P2WheelJointDetail.cpp">
+      <Filter>src\Siv3D\Physics2D</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

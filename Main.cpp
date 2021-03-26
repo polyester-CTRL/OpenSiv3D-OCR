@@ -18,21 +18,21 @@ struct Result
 	double probability = 0.0;
 };
 
-Array<Result> RecognizeCharacterFromImage(Image handwritten)
+ Array<Result> RecognizeCharacterFromImage(Image handwritten)
 {
 	Array<Result> results;
 	Result result;
 	// 画像読み込み
 	// const s3d::Image handwritten(U"example/hand.png");
 	cv::Mat image = s3d::OpenCV_Bridge::ToMatVec3bBGR(handwritten);
-	// cv::Mat image = cv::imread("example\\hand.png");
+	// cv::Mat image = cv::imread("Screenshot/hand.png");
 	// Print << image.size().width;
 
 	// グレースケール化
 	cv::Mat gray;
 	cv::cvtColor(image, gray, cv::COLOR_RGB2GRAY);
 	// 文字認識クラスのインスタンス生成
-	auto ocr = cv::text::OCRTesseract::create("tessdata\\", "jpn");
+	static cv::Ptr<cv::text::OCRTesseract> ocr = cv::text::OCRTesseract::create("tessdata", "jpn");
 	
 	// ホワイトリストを消す
 	ocr->setWhiteList("");
@@ -61,7 +61,7 @@ Array<Result> RecognizeCharacterFromImage(Image handwritten)
 		result.probability = confidences[i];
 		results.push_back(result);
 	}
-	String s;
+	String s = U"error";
 	if (boxes.size() > 0) 
 	{
 		// 文字コードを変換
@@ -93,7 +93,7 @@ void Main()
 		cv::Mat gray;
 		cv::cvtColor(image, gray, cv::COLOR_RGB2GRAY);
 		// 文字認識クラスのインスタンス生成
-		auto ocr = cv::text::OCRTesseract::create("tessdata\\", "jpn");
+		auto ocr = cv::text::OCRTesseract::create("tessdata", "jpn");
 
 		// ホワイトリストを消す
 		ocr->setWhiteList("");
@@ -129,7 +129,8 @@ void Main()
 		
 	}
 	/**/
-	// RecognizeCharacterFromImage(handwritten);
+	AsyncTask<int32> task;
+	RecognizeCharacterFromImage(handwritten);
 
 
 	// スケッチから文字認識

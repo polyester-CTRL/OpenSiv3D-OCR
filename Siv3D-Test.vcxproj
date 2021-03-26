@@ -49,7 +49,7 @@
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\Intermediate\</IntDir>
     <TargetName>$(ProjectName)(debug)</TargetName>
     <LocalDebuggerWorkingDirectory>$(ProjectDir)App</LocalDebuggerWorkingDirectory>
-    <IncludePath>$(SolutionDir)\..\Siv3D\include;$(SolutionDir)\..\Siv3D\include\ThirdParty;C:\code\opencv_build\install\include;$(OpenCV)\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\..\Siv3D\include;$(SolutionDir)\..\Siv3D\include\ThirdParty;C:\code\opencv_build\install\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\..\Siv3D\lib\Windows;$(OpenCV)\x64\vc16\lib;C:\code\vcpkg-master\installed\x64-windows\debug\lib;C:\code\vcpkg-master\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -57,8 +57,8 @@
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
     <LocalDebuggerWorkingDirectory>$(ProjectDir)App</LocalDebuggerWorkingDirectory>
-    <IncludePath>$(SolutionDir)\..\Siv3D\include;$(SolutionDir)\..\Siv3D\include\ThirdParty;C:\code\opencv_build\install\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\..\Siv3D\lib\Windows;$(OpenCV)\x64\vc16\lib;C:\code\vcpkg-master\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\..\Siv3D\include;$(SolutionDir)\..\Siv3D\include\ThirdParty;$(OpenCV)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\..\Siv3D\lib\Windows;$(OpenCV)\x64\vc16\lib;C:\code\vcpkg-master\installed\x64-windows\debug\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -76,7 +76,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\code\opencv_build\install\x64\vc16\lib\opencv_text451d.lib;C:\code\opencv_build\install\x64\vc16\lib\opencv_dnn451d.lib;C:\code\opencv_build\install\x64\vc16\lib\opencv_highgui451d.lib;C:\code\opencv_build\install\x64\vc16\lib\opencv_features2d451d.lib;C:\code\vcpkg-master\installed\x64-windows\debug\lib\tesseract41d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(SolutionDir)App\"</Command>
