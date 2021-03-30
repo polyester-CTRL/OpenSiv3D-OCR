@@ -145,13 +145,20 @@ void Main()
       results.clear();
     }
 
+    // 認識を開始するボタンが押されたら
     if (s3d::SimpleGUI::Button(U"Recognize", s3d::Vec2(640, 100), 120))
     {
+      // マルチスレッドで認識する関数を呼ぶ
       task = CreateAsyncTask(RecognizeCharacterFromImage, std::ref(dynamicImage), std::ref(text), std::ref(boxes), std::ref(words), std::ref(confidences));
     }
+
+    // マルチスレッド処理が終了したら
     if (task.isReady())
     {
+      // 認識結果を表示
       s3d::Print << task.get();
+
+      // 文字の場所を長方形で示す
       for (int i = 0; i < boxes.size(); i++)
       {
         s3d::Rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height).drawFrame(1, 1, s3d::Palette::Orange);
