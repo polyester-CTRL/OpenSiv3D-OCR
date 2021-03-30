@@ -50,7 +50,7 @@
     <TargetName>$(ProjectName)(debug)</TargetName>
     <LocalDebuggerWorkingDirectory>$(ProjectDir)App</LocalDebuggerWorkingDirectory>
     <IncludePath>$(SolutionDir)\..\Siv3D\include;$(SolutionDir)\..\Siv3D\include\ThirdParty;C:\code\opencv_build\install\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\..\Siv3D\lib\Windows;C:\code\vcpkg-static\installed\x64-windows-static\debug\lib;C:\code\vcpkg-static\installed\x64-windows-static\lib;C:\code\opencv_build\install\x64\vc16\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)\..\Siv3D\lib\Windows;C:\code\vcpkg-master\installed\x64-windows\debug\lib;C:\code\vcpkg-master\installed\x64-windows\lib;C:\code\opencv_build\install\x64\vc16\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -76,7 +76,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>C:\code\opencv_build\install\x64\vc16\lib\opencv_text451d.lib;C:\code\opencv_build\install\x64\vc16\lib\opencv_dnn451d.lib;C:\code\opencv_build\install\x64\vc16\lib\opencv_highgui451d.lib;C:\code\opencv_build\install\x64\vc16\lib\opencv_features2d451d.lib;C:\code\vcpkg-static\installed\x64-windows-static\debug\lib\tesseract41d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\code\opencv_build\install\x64\vc16\lib\opencv_text451d.lib;C:\code\opencv_build\install\x64\vc16\lib\opencv_dnn451d.lib;C:\code\opencv_build\install\x64\vc16\lib\opencv_highgui451d.lib;C:\code\opencv_build\install\x64\vc16\lib\opencv_features2d451d.lib;C:\code\vcpkg-master\installed\x64-windows\debug\lib\tesseract41d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(SolutionDir)App\"</Command>

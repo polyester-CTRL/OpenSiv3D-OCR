@@ -11,12 +11,7 @@ SIV3D_SET(EngineOption::Renderer::Direct3D11)
 //SIV3D_SET(EngineOption::Renderer::OpenGL)
 //SIV3D_SET(EngineOption::D3D11Driver::WARP)
 
-struct Result
-{
-  s3d::String st;
-  s3d::Rect re;
-  double probability = 0.0;
-};
+
 
 s3d::String RecognizeCharacterFromImage(Image handwritten,
   std::string& text,
@@ -24,25 +19,16 @@ s3d::String RecognizeCharacterFromImage(Image handwritten,
   std::vector<std::string>& words,
   std::vector<float>& confidences)
 {
-  // 認識したデータを保存する 
-  // std::string text;
-  // std::vector<cv::Rect> boxes;
-  // std::vector<std::string> words;
-  Array<Result> results;
-  Result result;
-  // 画像読み込み
-  // const s3d::Image handwritten(U"example/hand.png");
+  
+  // 画像変換
   cv::Mat image = s3d::OpenCV_Bridge::ToMatVec3bBGR(handwritten);
-  // cv::Mat image = cv::imread("Screenshot/hand.png");
-  // Print << image.size().width;
 
   // グレースケール化
-
   cv::Mat gray;
   cv::cvtColor(image, gray, cv::COLOR_RGB2GRAY);
-  // 文字認識クラスのインスタンス生成
-  {
 
+  {
+    // 文字認識クラスのインスタンス生成
     cv::Ptr<cv::text::OCRTesseract> ocr = cv::text::OCRTesseract::create("tessdata", "jpn");
     // ホワイトリストを消す
     ocr->setWhiteList("");
@@ -50,32 +36,13 @@ s3d::String RecognizeCharacterFromImage(Image handwritten,
     // 文字認識の実行
     ocr->run(gray, text, &boxes, &words, &confidences);
   }
-  /*
-  */
   // 結果出力
-  // 文字のかたまりごとに出力
-  printf(" 文字      | 位置       | 大きさ     | 信頼度\n");
-  printf("-----------+------------+------------+----------\n");
-  for (int i = 0; i < boxes.size(); i++)
-  {
-    printf("%-10s | (%3d, %3d) | (%3d, %3d) | %f\n",
-      words[i].c_str(),
-      boxes[i].x, boxes[i].y,
-      boxes[i].width, boxes[i].height,
-      confidences[i]);
-    // result.st = Unicode::FromUTF8(words[i]);
-    // result.re.x = boxes[i].x, result.re.y = boxes[i].y;
-    // result.re.w = boxes[i].width, result.re.h = boxes[i].height;
-    // result.probability = confidences[i];
-    // results.push_back(result);
-  }
   String s = U"error";
   if (boxes.size() > 0)
   {
     // 文字コードを変換
     s = Unicode::FromUTF8(text);
   }
-  // Print << s;
 
   return s;
 }
@@ -85,65 +52,22 @@ s3d::String RecognizeCharacterFromImage(Image handwritten,
 void Main()
 {
 
-  // Scene::SetBackground(ColorF{ 0.8, 0.9, 1.0 });
   Scene::SetBackground(Palette::Black);
   Scene::SetResizeMode(ResizeMode::Keep);
   Window::SetStyle(WindowStyle::Sizable);
-  // Window::Resize(1280, 720);
+
+  // 認識結果を保存する
   std::string text;
   std::vector<cv::Rect> boxes;
   std::vector<std::string> words;
   std::vector<float> confidences;
-  {
-
-    // 画像読み込み
-    const s3d::Image handwritten(U"Screenshot/hand.png");
-    /**/
-    cv::Mat image = s3d::OpenCV_Bridge::ToMatVec3bBGR(handwritten);
-    // cv::Mat image = cv::imread("example\\hand.png");
-    // Print << image.size().width;
-
-    // グレースケール化
-    cv::Mat gray;
-    cv::cvtColor(image, gray, cv::COLOR_RGB2GRAY);
-
-    // 文字認識クラスのインスタンス生成
-    auto ocr = cv::text::OCRTesseract::create("tessdata", "jpn");
-
-    // ホワイトリストを消す
-    ocr->setWhiteList("");
-
-    // 文字認識の実行
-    ocr->run(gray, text, &boxes, &words, &confidences);
-
-    // 結果出力
-
-
-    // 文字のかたまりごとに出力
-    // printf(" 文字      | 位置       | 大きさ     | 信頼度\n");
-    // printf("-----------+------------+------------+----------\n");
-    for (int i = 0; i < boxes.size(); i++)
-    {
-      printf("%-10s | (%3d, %3d) | (%3d, %3d) | %f\n",
-        words[i].c_str(),
-        boxes[i].x, boxes[i].y,
-        boxes[i].width, boxes[i].height,
-        confidences[i]);
-    }
-    String s = U"hello";
-    if (boxes.size() > 0) {
-      // 文字コードを変換
-      s = Unicode::FromUTF8(text);
-    }
-    Print << s;
-
-
-  }
-
+  Array<Rect> results;
+  
+  
   AsyncTask<String> task;
+
   // 画像読み込み
   const s3d::Image handwritten(U"Screenshot/hand.png");
-  RecognizeCharacterFromImage(handwritten, text, boxes, words, confidences);
 
 
   // スケッチから文字認識
@@ -190,18 +114,29 @@ void Main()
 
       // 塗りつぶし終わった image でテクスチャを更新
       texture.fill(dynamicImage);
+
+      // 認識した場所の情報を消す
+      results.clear();
     }
 
     if (SimpleGUI::Button(U"Recognize", Vec2(640, 100), 120))
     {
-      // task = RecognizeCharacterFromImage(dynamicImage, text, boxes, words, confidences);
       task = CreateAsyncTask(RecognizeCharacterFromImage, std::ref(dynamicImage), std::ref(text), std::ref(boxes), std::ref(words), std::ref(confidences));
     }
     if (task.isReady())
     {
       Print << task.get();
+      for (int i = 0; i < boxes.size(); i++)
+      {
+        Rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height).drawFrame(1, 1, Palette::Orange);
+        results.push_back(Rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height));
+      }
     }
     // テクスチャを表示
     texture.draw();
+    for (const auto& result : results) 
+    {
+      result.drawFrame(1, 1, Palette::Orange);
+    }
   }
 }
