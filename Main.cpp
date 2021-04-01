@@ -1,4 +1,10 @@
-﻿
+﻿// 参考にしたコード
+// https://github.com/opencv/opencv_contrib/blob/master/modules/text/src/ocr_tesseract.cpp#L206
+// This software includes the work that is distributed in the Apache License 2.0
+// http://www.apache.org/licenses/LICENSE-2.0
+
+
+
 # define NO_S3D_USING
 # include <Siv3D.hpp> // OpenSiv3D v0.6
 # include <Siv3D/OpenCV_Bridge.hpp>
@@ -14,7 +20,7 @@ SIV3D_SET(s3d::EngineOption::Renderer::Direct3D11)
 //SIV3D_SET(EngineOption::Renderer::OpenGL)
 //SIV3D_SET(EngineOption::D3D11Driver::WARP)
 
-s3d::String UseTesseractAPI()
+s3d::String UseTesseractAPI(s3d::Image handwritten)
 {
   s3d::String s;
   char* outText;
@@ -24,10 +30,19 @@ s3d::String UseTesseractAPI()
     s3d::Print << U"Tesseract error";
     return U"Tesseract error";
   }
-  Pix* image = pixRead("Screenshot/hand.png");
-  api->SetImage(image);
+
+  cv::Mat cvImage = s3d::OpenCV_Bridge::ToMatVec3bBGR(handwritten);
+  
+  // ここから
+  // https://github.com/opencv/opencv_contrib/blob/master/modules/text/src/ocr_tesseract.cpp#L206
+  api->SetImage((uchar*)cvImage.data, cvImage.size().width, cvImage.size().height, cvImage.channels(), cvImage.step1());
+
+  // ここまで
+  
 
   outText = api->GetUTF8Text();
+
+
   api->End();
   delete api;
 
@@ -35,6 +50,7 @@ s3d::String UseTesseractAPI()
   return s;
 }
 
+/*
 s3d::String RecognizeCharacterFromImage(s3d::Image handwritten,
   std::string& text,
   std::vector<cv::Rect>& boxes,
@@ -68,6 +84,7 @@ s3d::String RecognizeCharacterFromImage(s3d::Image handwritten,
 
   return s;
 }
+*/
 
 
 
@@ -91,8 +108,8 @@ void Main()
   // 画像読み込み
   const s3d::Image handwritten(U"Screenshot/hand.png");
 
-  // useTesseract
-  s3d::String res = UseTesseractAPI();
+  // useTesseract 
+  s3d::String res = UseTesseractAPI(handwritten);
   s3d::Print << res;
 
 
@@ -149,7 +166,7 @@ void Main()
     if (s3d::SimpleGUI::Button(U"Recognize", s3d::Vec2(640, 100), 120))
     {
       // マルチスレッドで認識する関数を呼ぶ
-      task = CreateAsyncTask(RecognizeCharacterFromImage, std::ref(dynamicImage), std::ref(text), std::ref(boxes), std::ref(words), std::ref(confidences));
+      // task = CreateAsyncTask(RecognizeCharacterFromImage, std::ref(dynamicImage), std::ref(text), std::ref(boxes), std::ref(words), std::ref(confidences));
     }
 
     // マルチスレッド処理が終了したら
