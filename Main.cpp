@@ -8,8 +8,6 @@
 # define NO_S3D_USING
 # include <Siv3D.hpp> // OpenSiv3D v0.6
 # include <Siv3D/OpenCV_Bridge.hpp>
-# include <opencv2/opencv.hpp>
-# include <opencv2/text.hpp>
 # include <tesseract/baseapi.h>
 # include <leptonica/allheaders.h>
 
@@ -20,72 +18,72 @@ SIV3D_SET(s3d::EngineOption::Renderer::Direct3D11)
 //SIV3D_SET(EngineOption::Renderer::OpenGL)
 //SIV3D_SET(EngineOption::D3D11Driver::WARP)
 
-s3d::String UseTesseractAPI(s3d::Image handwritten)
+
+struct Result
 {
-  s3d::String s;
-  char* outText;
-  tesseract::TessBaseAPI* api = new tesseract::TessBaseAPI();
-  if (api->Init("tessdata", "jpn"))
+  s3d::String word;
+  s3d::Rect box;
+  double probability = 0.0;
+};
+
+s3d::Array<Result> UseTesseractAPI(s3d::Image handwritten)
+{
+  s3d::Array<Result> results;
+  tesseract::TessBaseAPI api;
+  if (api.Init("tessdata", "jpn"))
   {
     s3d::Print << U"Tesseract error";
-    return U"Tesseract error";
+    return results;
   }
 
   cv::Mat cvImage = s3d::OpenCV_Bridge::ToMatVec3bBGR(handwritten);
   
   // ここから
   // https://github.com/opencv/opencv_contrib/blob/master/modules/text/src/ocr_tesseract.cpp#L206
-  api->SetImage((uchar*)cvImage.data, cvImage.size().width, cvImage.size().height, cvImage.channels(), cvImage.step1());
+  api.SetImage((uchar*)cvImage.data, cvImage.size().width, cvImage.size().height, cvImage.channels(), cvImage.step1());
+  api.Recognize(0);
+
+  tesseract::ResultIterator* ri = api.GetIterator();
+  tesseract::PageIteratorLevel level = tesseract::RIL_WORD;
+
+  if (ri != 0)
+  {
+    do 
+    {
+      Result res;
+
+      // 信頼度
+      res.probability = ri->Confidence(level);
+      // 検出した場所
+      int x1, y1, x2, y2;
+      ri->BoundingBox(level, &x1, &y1, &x2, &y2);
+      res.box = s3d::Rect(x1, y1, x2 - x1, y2 - y1);
+      
+
+
+      // 文字列をs3d::Stringに変換
+      res.word = s3d::Unicode::FromUTF8(ri->GetUTF8Text(level));
+      /*
+      if (res.word == NULL)
+      {
+        continue;
+      }
+      */
+      
+
+
+      results.push_back(res);
+    } while (ri->Next(level));
+    delete ri;
+  }
 
   // ここまで
-  
-
-  outText = api->GetUTF8Text();
 
 
-  api->End();
-  delete api;
+  api.Clear();
 
-  s = s3d::Unicode::FromUTF8(outText);
-  return s;
+  return results;
 }
-
-/*
-s3d::String RecognizeCharacterFromImage(s3d::Image handwritten,
-  std::string& text,
-  std::vector<cv::Rect>& boxes,
-  std::vector<std::string>& words,
-  std::vector<float>& confidences)
-{
-  
-  // 画像変換
-  cv::Mat image = s3d::OpenCV_Bridge::ToMatVec3bBGR(handwritten);
-
-  // グレースケール化
-  cv::Mat gray;
-  cv::cvtColor(image, gray, cv::COLOR_RGB2GRAY);
-
-  {
-    // 文字認識クラスのインスタンス生成
-    cv::Ptr<cv::text::OCRTesseract> ocr = cv::text::OCRTesseract::create("tessdata", "jpn");
-    // ホワイトリストを消す
-    ocr->setWhiteList("");
-
-    // 文字認識の実行
-    ocr->run(gray, text, &boxes, &words, &confidences);
-  }
-  // 結果出力
-  s3d::String s = U"error";
-  if (boxes.size() > 0)
-  {
-    // 文字コードを変換
-    s = s3d::Unicode::FromUTF8(text);
-  }
-
-  return s;
-}
-*/
-
 
 
 void Main()
@@ -96,21 +94,13 @@ void Main()
   s3d::Window::SetStyle(s3d::WindowStyle::Sizable);
 
   // 認識結果を保存する
-  std::string text;
-  std::vector<cv::Rect> boxes;
-  std::vector<std::string> words;
-  std::vector<float> confidences;
   s3d::Array<s3d::Rect> results;
-  
-  
-  s3d::AsyncTask<s3d::String> task;
+  s3d::AsyncTask<s3d::Array<Result>> task;
 
   // 画像読み込み
   const s3d::Image handwritten(U"Screenshot/hand.png");
 
-  // useTesseract 
-  s3d::String res = UseTesseractAPI(handwritten);
-  s3d::Print << res;
+  
 
 
   // スケッチから文字認識
@@ -166,24 +156,25 @@ void Main()
     if (s3d::SimpleGUI::Button(U"Recognize", s3d::Vec2(640, 100), 120))
     {
       // マルチスレッドで認識する関数を呼ぶ
-      // task = CreateAsyncTask(RecognizeCharacterFromImage, std::ref(dynamicImage), std::ref(text), std::ref(boxes), std::ref(words), std::ref(confidences));
+      task = s3d::CreateAsyncTask(UseTesseractAPI, s3d::Image(dynamicImage));
     }
 
     // マルチスレッド処理が終了したら
     if (task.isReady())
     {
-      // 認識結果を表示
-      s3d::Print << task.get();
+      auto returnValue = task.get();
 
-      // 文字の場所を長方形で示す
-      for (int i = 0; i < boxes.size(); i++)
+      
+      for (const auto &result : returnValue)
       {
-        s3d::Rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height).drawFrame(1, 1, s3d::Palette::Orange);
-        results.push_back(s3d::Rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height));
+        results.push_back(result.box);
+        s3d::Print << result.word;
       }
     }
     // テクスチャを表示
     texture.draw();
+
+    // 文字の場所を長方形で示す
     for (const auto& result : results) 
     {
       result.drawFrame(1, 1, s3d::Palette::Orange);
