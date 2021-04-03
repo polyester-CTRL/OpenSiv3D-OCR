@@ -29,7 +29,7 @@ struct Result
 s3d::Array<Result> UseTesseractAPI(s3d::Image handwritten)
 {
   s3d::Array<Result> results;
-  tesseract::TessBaseAPI api;
+  tesseract::TessBaseAPI api; 
   if (api.Init("tessdata", "jpn"))
   {
     s3d::Print << U"Tesseract error";
