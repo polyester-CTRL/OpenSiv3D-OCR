@@ -10,7 +10,7 @@
 # include <Siv3D/OpenCV_Bridge.hpp>
 # include <tesseract/baseapi.h>
 # include <leptonica/allheaders.h>
-
+# include <tesseractlib.hpp>
 
 
 
@@ -54,7 +54,7 @@ s3d::Array<Result> UseTesseractAPI(s3d::Image handwritten)
 
       // 信頼度
       res.probability = ri->Confidence(level);
-      // 検出した場所
+      // 検出した文字の場所
       int x1, y1, x2, y2;
       ri->BoundingBox(level, &x1, &y1, &x2, &y2);
       res.box = s3d::Rect(x1, y1, x2 - x1, y2 - y1);
