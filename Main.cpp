@@ -22,7 +22,7 @@ SIV3D_SET(s3d::EngineOption::Renderer::Direct3D11)
 struct Result
 {
   s3d::String word;
-  s3d::Rect box;
+  s3d::Rect box; 
   double probability = 0.0;
 };
 
