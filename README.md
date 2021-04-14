@@ -13,7 +13,7 @@ OpenSiv3Dで文字認識を行います。
 ### Tesseractのインストール
 1. Visual StudioインストーラーからVisual Studioに英語の言語パックを追加します。（追加していない場合）
 1. Tesseractはvcpkgからインストールすることができます。まず[vcpkg](https://github.com/microsoft/vcpkg)をGitHubからダウンロードし、中にある「bootstrap-vcpkg.bat」を実行します。
-2. vcpkgのある場所で管理者権限でコマンドプロンプトを開き`vcpkg install tesseract:x64-windows`というコマンドを実行します。
+2. vcpkgのある場所で管理者権限でコマンドプロンプトを開き`vcpkg install tesseract:x64-windows-static`というコマンドを実行します。
 3. しばらく待つとインストールが完了します。
 
 ### Visual Studioの設定
