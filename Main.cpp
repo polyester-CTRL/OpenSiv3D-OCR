@@ -94,7 +94,7 @@ void Main()
   s3d::Window::SetStyle(s3d::WindowStyle::Sizable);
 
   // 認識結果を保存する
-  s3d::Array<s3d::Rect> results;
+  s3d::Array<Result> results;
   s3d::AsyncTask<s3d::Array<Result>> task;
 
   // 画像読み込み
@@ -167,8 +167,9 @@ void Main()
       
       for (const auto &result : returnValue)
       {
-        results.push_back(result.box);
+        results.push_back(result);
         s3d::Print << result.word;
+        s3d::Print << result.probability;
       }
     }
     // テクスチャを表示
@@ -177,7 +178,7 @@ void Main()
     // 文字の場所を長方形で示す
     for (const auto& result : results) 
     {
-      result.drawFrame(1, 1, s3d::Palette::Orange);
+      result.box.drawFrame(1, 1, s3d::HSV((result.probability), 1.0, 1.0, s3d::Periodic::Sine0_1(1.5)));
     }
   }
 }
