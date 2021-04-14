@@ -17,12 +17,12 @@ OpenSiv3Dで文字認識を行います。
 3. しばらく待つとインストールが完了します。
 
 ### Visual Studioの設定
-6. OpenSiv3D.slnのあるフォルダの中にtesseractlibというフォルダを作ります。
-7. tesseractlibの中にdebug, releaseフォルダを作ります。
-8. debugの中にC:\ ...\vcpkg\installed\x64-windows-static\debug\libの中身をコピーします。
-9. releaseの中にC:\ ...\vcpkg\installed\x64-windows-static\libの中身をコピーします。
-10. Visual Studioのインクルードディレクトリに$(SolutionDir)、C:\ ... \vcpkg\installed\x64-windows-static\include、およびC:\ ... \OpenSiv3D_0_6_master\Siv3D\src\ThirdParty-prebuilt\　を加えます。
-11. Visual StudioのライブラリディレクトリにC:\ ... \vcpkg\installed\x64-windows-static\debug\libを加えます。
+1. OpenSiv3D.slnのあるフォルダの中にtesseractlibというフォルダを作ります。
+2. tesseractlibの中にdebug, releaseフォルダを作ります。
+3. debugの中にC:\ ...\vcpkg\installed\x64-windows-static\debug\libの中身をコピーします。
+4. releaseの中にC:\ ...\vcpkg\installed\x64-windows-static\libの中身をコピーします。
+5. Visual Studioのインクルードディレクトリに$(SolutionDir)、C:\ ... \vcpkg\installed\x64-windows-static\include、およびC:\ ... \OpenSiv3D_0_6_master\Siv3D\src\ThirdParty-prebuilt\　を加えます。
+6. Visual StudioのライブラリディレクトリにC:\ ... \vcpkg\installed\x64-windows-static\debug\libを加えます。
 
 ### 言語データの用意
-13. https://github.com/tesseract-ocr/tessdata_fast からjpn.traineddata（縦書きの文章を認識したい場合はjpn_vert.traineddata）をダウンロードします。ダウンロードしたファイルは、`App` フォルダに新しくフォルダを作り、その中に置いてください。(ここでは`data`というフォルダを作ったものとします。）
+1. https://github.com/tesseract-ocr/tessdata_fast からjpn.traineddata（縦書きの文章を認識したい場合はjpn_vert.traineddata）をダウンロードします。ダウンロードしたファイルは、`App` フォルダに新しくフォルダを作り、その中に置いてください。(ここでは`data`というフォルダを作ったものとします。）
