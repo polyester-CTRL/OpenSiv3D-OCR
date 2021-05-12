@@ -150,6 +150,9 @@ void Main()
 
       // 認識した場所の情報を消す
       results.clear();
+      
+      // Printしたものを消す
+      s3d::ClearPrint();
     }
 
     // 認識を開始するボタンが押されたら
